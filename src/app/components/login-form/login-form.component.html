@@ -1,0 +1,65 @@
+<div id="login-overlay" class="modal-dialog custom-modal-container">
+  <div class="modal-content custom-modal-header">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" (click)="closeForm()"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+      <h4 class="modal-title" id="myModalLabel">Examen 1</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="well">
+            <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+              <h4 class="modal-title" id="title">Estudiant</h4>
+              <div class="form-group">
+                <label for="name" class="control-label">Nom</label>
+                <input type="text" class="form-control" id="name" name="name" value="" required="" title="Introdueix el nom de l'estudiant" placeholder="Nom Cognom" #name>
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group">
+                <label for="address" class="control-label">Adreça</label>
+                <input type="text" class="form-control" id="address" value="" required="" placeholder="C/Exemple" #address>
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group">
+                <label for="hometlf" class="control-label">Telefon casa</label>
+                <input type="text" class="form-control" id="hometlf" value="" required="" placeholder="XXXXXXXXX" #hometlf>
+                <span class="help-block"></span>
+              </div>
+              <div class="form-group">
+                <label for="worktlf" class="control-label">Telefon feina</label>
+                <input type="text" class="form-control" id="worktlf" value="" required="" placeholder="XXXXXXXXX" #worktlf>
+                <span class="help-block"></span>
+              </div>
+              <div id="loginErrorMsg" class="alert alert-error hide">Error en correo o contraseña</div>
+              <button type="submit" class="btn btn-success btn-block" (click)="addStudent(name.value, address.value, hometlf.value, worktlf.value)">GUARDAR</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <form id="registerForm" method="POST" action="/login/" novalidate="novalidate">
+            <h4 class="modal-title" id="title2">Assignatura</h4>
+            <div class="form-group">
+              <label for="name2" class="control-label">Nom:</label>
+              <input type="text" class="form-control" id="name2" name="name2" value="" required="" title="Introduzca su nombre de usuario" placeholder="Exemple" #name2>
+              <span class="help-block"></span>
+            </div>
+            <div class="form-group">
+              <label for="studies" class="control-label">Studies:</label>
+              <input type="text" class="form-control" id="studies" name="studies" value="" required="" title="Introduzca su nombre de usuario" placeholder="Exemple" #studies>
+              <span class="help-block"></span>
+            </div>
+            <div class="form-group">
+              <label for="quadri" class="control-label">Quadrimestre:</label>
+              <input type="text" class="form-control" id="quadri" name="quadri" value="" required="" title="Introduzca su nombre de usuario" placeholder="Exemple" #quadri>
+              <span class="help-block"></span>
+            </div>
+            <p><a class="btn btn-info btn-block" (click)="addSubject(name2.value, studies.value, quadri.value)">CREAR</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-student-list></app-student-list>
+<app-subject-list></app-subject-list>
